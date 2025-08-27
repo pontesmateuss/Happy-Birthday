@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feliz Aniversário, Vitória ✨💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <script src="server.js"></script>
+
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="hearts" aria-hidden="true"></div>
+
+  <header>
+    <h1>Feliz Aniversário, Vitória ✨</h1>
+    <div class="subtitle">Hoje celebramos você — e o nosso amor. 💖</div>
+    <div class="ribbon" id="today">Domingo, dia 7 de Setembro de 2025.</div>
+    <div class="toolbar">
+      <button class="btn" id="toggleHearts">Alternar corações</button>
+      <button class="btn" id="toggleStars">Alternar estrelas</button>
+      <button class="btn" id="shuffle">Embaralhar polaroids</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 style="margin:0 0 8px">Nossa história em fotos 📷</h2>
+      <p style="margin:0 0 10px;color:var(--muted)">Te amo minha menininha, com muito amor e carinho.</p>
+      <div class="gallery" id="gallery">
+        <!-- Troque os src pelas suas fotos (pode ser link ou arquivo local) -->
+        <figure class="polaroid" style="--rot:-4deg">
+          <span class="pin"></span>
+          <img src="../Happy-Birthday-My-Love-/fotos juntos/Nós, beijo na bochexa.jpg" alt="Nossa foto 1" />
+          <figcaption class="caption">você + eu = 💗</figcaption>
+        </figure>
+        <figure class="polaroid" style="--rot:3.5deg">
+          <span class="pin"></span>
+          <img src="../Happy-Birthday-My-Love-/fotos juntos/Perfeição, eu tirei.jpg" alt="Nossa foto 2" />
+          <figcaption class="caption">sorriso que amo</figcaption>
+        </figure>
+        <figure class="polaroid" style="--rot:-2deg">
+          <span class="pin"></span>
+          <img src="../Happy-Birthday-My-Love-/fotos juntos/Nós abraçados.jpg" alt="Nossa foto 3" />
+          <figcaption class="caption">um clique e um abraço</figcaption>
+        </figure>
+        <figure class="polaroid" style="--rot:5deg">
+          <span class="pin"></span>
+          <img src="../Happy-Birthday-My-Love-/fotos juntos/Perfeição.jpg" alt="Nossa foto 4" />
+          <figcaption class="caption">meu lugar favorito</figcaption>
+        </figure>
+        <figure class="polaroid" style="--rot:-6deg">
+          <span class="pin"></span>
+          <img src="../Happy-Birthday-My-Love-/fotos juntos/Nós no sofá.jpg" alt="Nossa foto 5" />
+          <figcaption class="caption">momentos que guardo</figcaption>
+        </figure>
+        <figure class="polaroid" style="--rot:2deg">
+          <span class="pin"></span>
+          <img src="../Happy-Birthday-My-Love-/fotos juntos/Cabeça apoiada no ombro dela.jpg" alt="Nossa foto 6" />
+          <figcaption class="caption">com amor, sempre</figcaption>
+        </figure>
+        <figure class="polaroid" style="--rot:2deg">
+          <span class="pin"></span>
+          <img src="../Happy-Birthday-My-Love-/fotos juntos/Perfeição, saindo.jpg" alt="Nossa foto 7" />
+          <figcaption class="caption">Te amo, minha menina.</figcaption>
+        </figure>
+        <figure class="polaroid" style="--rot:2deg">
+          <span class="pin"></span>
+          <img src="../Happy-Birthday-My-Love-/fotos juntos/Perfeição, na reunião.jpg" alt="Nossa foto 8" />
+          <figcaption class="caption">amo que seja você!</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:22px">
+      <h2 style="margin:0 0 8px">Citações de livros de romance 📚</h2>
+      <p style="margin:0 0 8px;color:var(--muted)">Algumas palavras que me lembram de você (traduções livres):</p>
+      <div class="quotes">
+        <blockquote class="quote">
+          <p>“Permita-me dizer-lhe quanto ardentemente a admiro e amo.”</p>
+          <small>— Jane Austen, <em>Orgulho e Preconceito</em> (1813)</small>
+        </blockquote>
+        <blockquote class="quote">
+          <p>“Seja qual for a nossa essência, a sua e a minha são a mesma.”</p>
+          <small>— Emily Brontë, <em>O Morro dos Ventos Uivantes</em> (1847)</small>
+        </blockquote>
+        <blockquote class="quote">
+          <p>“Eu estou metade agonia, metade esperança.”</p>
+          <small>— Jane Austen, <em>Persuasão</em> (1817)</small>
+        </blockquote>
+        <blockquote class="quote">
+          <p>“Quero que saiba: você foi o último sonho da minha alma.”</p>
+          <small>— Charles Dickens, <em>Um Conto de Duas Cidades</em> (1859)</small>
+        </blockquote>
+        <blockquote class="quote">
+          <p>“Amo-te não só pelo que és, mas pelo que sou quando estou contigo.”</p>
+          <small>— Roy Croft (domínio público)</small>
+        </blockquote>
+        <blockquote class="quote">
+          <p>“Leve o meu coração com você; nunca estou realmente sem ele.”</p>
+          <small>— E. E. Cummings (domínio público)</small>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:22px; text-align:center">
+      <h2 style="margin:0 0 8px">Recadinho 💌</h2>
+      <p style="margin:0; color:var(--muted)">Vitória, que o seu novo ano seja doce, leve e cheio de estrelas. Obrigado por iluminar a minha vida. Te amo!<br> <a href="https://open.spotify.com/intl-pt/track/1DLKuppSYytOuxhtI6KBGu?si=7d7ed6498741495a">Dedico essa pra ti!</a> ✨💖</p>
+    </section>
+  </main>
+
+  <footer>
+    Feito com amor, Mateus. <span id="year"></span>
+  </footer>
+
+</body>
+</html>

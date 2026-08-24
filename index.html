@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  COMO ADICIONAR AS FOTOS (leia isso antes de publicar!)
+  ============================================================
+  1. Crie uma pasta chamada "fotos" bem ao lado deste arquivo HTML.
+  2. Coloque suas fotos dentro dela com estes nomes exatos:
+     fotos/hero.jpg   -> foto grande de vocês duas, no topo
+     fotos/1.jpg até fotos/6.jpg  -> grade "abertura" (estilo elenco)
+     fotos/7.jpg até fotos/12.jpg -> galeria final "melhores momentos"
+  3. Pode usar .jpg, .png ou .jpeg — só ajuste a extensão no código
+     (procure por src="fotos/...") se não for .jpg.
+  4. Enquanto uma foto não existir, aparece um quadro pontilhado no
+     lugar dela — é normal, é só o "molde" esperando a foto certa.
+  5. Troque o nome dela em [NOME DELA], a idade/apto e a mensagem
+     final procurando por esses textos no código (Ctrl+F ajuda).
+  Esse aviso não aparece pra quem visitar o site — é só um comentário.
+  ============================================================
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feliz Aniversário 💜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#4B1B45;
+    --plum-light:#6E2E63;
+    --mustard:#E8A93C;
+    --burnt:#C1571F;
+    --cream:#F7EEDF;
+    --paper:#FFFBF3;
+    --ink:#2B1B12;
+    --ross:#3E6D9C;
+    --rachel:#E0AE3E;
+    --monica:#8A4B94;
+    --chandler:#4E8A63;
+    --joey:#C1571F;
+    --phoebe:#D97C9C;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Quicksand',sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  h1,h2,.logo-title{
+    font-family:'Fredoka',sans-serif;
+    margin:0;
+  }
+
+  .eyebrow,.code{
+    font-family:'Space Mono',monospace;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+
+  a{color:inherit;}
+
+  section{
+    padding:6rem 1.5rem;
+    max-width:1000px;
+    margin:0 auto;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:none;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:4rem 1.5rem 3rem;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(232,169,60,.18), transparent 55%),
+      var(--plum);
+    color:var(--paper);
+    position:relative;
+  }
+
+  .door-frame{
+    width:92px;
+    height:92px;
+    border-radius:50%;
+    background:var(--paper);
+    border:6px solid var(--mustard);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:1.6rem;
+    box-shadow:0 0 0 6px var(--plum-light);
+  }
+  .door-frame .peep{
+    text-align:center;
+    line-height:1.05;
+  }
+  .door-frame .peep .num{
+    font-family:'Fredoka',sans-serif;
+    font-weight:700;
+    font-size:1.8rem;
+    color:var(--plum);
+    display:block;
+  }
+  .door-frame .peep .apt{
+    font-family:'Space Mono',monospace;
+    font-size:.5rem;
+    letter-spacing:.1em;
+    color:var(--burnt);
+  }
+
+  .eyebrow{
+    font-size:.72rem;
+    color:var(--mustard);
+    margin-bottom:1.1rem;
+  }
+
+  .logo-title{
+    font-size:clamp(2.4rem, 8vw, 4.4rem);
+    font-weight:700;
+    text-transform:uppercase;
+    line-height:1.04;
+    letter-spacing:.01em;
+  }
+  .logo-title .name{
+    color:var(--mustard);
+  }
+
+  .friend-rule{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin:1.5rem 0 1.2rem;
+  }
+  .friend-rule span{
+    width:28px;
+    height:6px;
+    border-radius:3px;
+  }
+  .friend-rule span:nth-child(1){background:var(--ross);}
+  .friend-rule span:nth-child(2){background:var(--rachel);}
+  .friend-rule span:nth-child(3){background:var(--monica);}
+  .friend-rule span:nth-child(4){background:var(--chandler);}
+  .friend-rule span:nth-child(5){background:var(--joey);}
+  .friend-rule span:nth-child(6){background:var(--phoebe);}
+
+  .subtitle{
+    font-style:italic;
+    color:var(--cream);
+    opacity:.85;
+    margin-bottom:2.6rem;
+  }
+
+  .hero-photo{
+    width:min(78vw,320px);
+    aspect-ratio:4/5;
+    background:var(--paper);
+    padding:14px 14px 40px;
+    border-radius:4px;
+    transform:rotate(-3deg);
+    box-shadow:0 18px 40px rgba(0,0,0,.35);
+    position:relative;
+  }
+  .hero-photo img,.hero-photo .placeholder{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    border-radius:2px;
+  }
+
+  .scroll-cue{
+    margin-top:3rem;
+    font-family:'Space Mono',monospace;
+    font-size:.75rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--cream);
+    opacity:.7;
+    text-decoration:none;
+    animation:bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(6px);}
+  }
+
+  /* ---------- PLACEHOLDER (foto ausente) ---------- */
+  .placeholder{
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:.4rem;
+    background:repeating-linear-gradient(45deg,#EEE0C8,#EEE0C8 10px,#E6D5B4 10px,#E6D5B4 20px);
+    border:2px dashed #B99A63;
+    color:#7A5B33;
+    text-align:center;
+    padding:.5rem;
+  }
+  .placeholder .cam{font-size:1.6rem;}
+  .placeholder span{
+    font-family:'Space Mono',monospace;
+    font-size:.62rem;
+    word-break:break-all;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-head{
+    text-align:center;
+    margin-bottom:3rem;
+  }
+  .section-head .code{
+    font-size:.7rem;
+    color:var(--burnt);
+    display:block;
+    margin-bottom:.6rem;
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem,5vw,2.6rem);
+    text-transform:uppercase;
+    color:var(--plum);
+  }
+  .section-head p{
+    max-width:480px;
+    margin:.6rem auto 0;
+    color:#5b4632;
+  }
+
+  /* ---------- INTRO GRID (estilo elenco) ---------- */
+  .cast-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1.6rem 1.2rem;
+  }
+  .cast-card{
+    text-align:center;
+  }
+  .cast-frame{
+    aspect-ratio:1/1;
+    border-radius:50%;
+    padding:6px;
+    transition:transform .35s ease;
+    overflow:hidden;
+  }
+  .cast-frame:hover{transform:scale(1.05) rotate(0deg) !important;}
+  .cast-frame img,.cast-frame .placeholder{border-radius:50%;}
+  .cast-card:nth-child(1) .cast-frame{background:var(--ross);   transform:rotate(-2deg);}
+  .cast-card:nth-child(2) .cast-frame{background:var(--rachel); transform:rotate(2deg);}
+  .cast-card:nth-child(3) .cast-frame{background:var(--monica); transform:rotate(-3deg);}
+  .cast-card:nth-child(4) .cast-frame{background:var(--chandler);transform:rotate(3deg);}
+  .cast-card:nth-child(5) .cast-frame{background:var(--joey);   transform:rotate(-2deg);}
+  .cast-card:nth-child(6) .cast-frame{background:var(--phoebe); transform:rotate(2deg);}
+  .cast-card .cast-frame .placeholder{background:rgba(255,255,255,.5);border-color:rgba(0,0,0,.25);}
+  .cast-caption{
+    margin-top:.7rem;
+    font-size:.85rem;
+    color:var(--plum);
+    font-weight:600;
+  }
+
+  /* ---------- EPISODE GUIDE ---------- */
+  .episodes{
+    display:flex;
+    flex-direction:column;
+    gap:1.1rem;
+  }
+  .episode{
+    display:grid;
+    grid-template-columns:90px 1fr;
+    gap:1.4rem;
+    align-items:start;
+    background:var(--paper);
+    border:1px solid #E4D3B0;
+    border-left:6px solid var(--burnt);
+    border-radius:6px;
+    padding:1.3rem 1.5rem;
+  }
+  .episode:nth-child(2){border-left-color:var(--ross);}
+  .episode:nth-child(3){border-left-color:var(--chandler);}
+  .episode:nth-child(4){border-left-color:var(--monica);}
+  .episode .code{
+    font-size:.72rem;
+    color:var(--burnt);
+    padding-top:.2rem;
+  }
+  .episode h3{
+    font-family:'Fredoka',sans-serif;
+    font-size:1.15rem;
+    margin:0 0 .3rem;
+    color:var(--plum);
+  }
+  .episode p{margin:0;color:#5b4632;font-size:.95rem;}
+
+  /* ---------- CENTRAL PERK MENSAGEM ---------- */
+  .perk{
+    background:var(--plum);
+    color:var(--paper);
+    border-radius:10px;
+    padding:3rem 2rem;
+    text-align:center;
+    position:relative;
+  }
+  .perk::before{
+    content:"CENTRAL PERK";
+    display:block;
+    font-family:'Fredoka',sans-serif;
+    font-weight:700;
+    letter-spacing:.05em;
+    color:var(--mustard);
+    font-size:1.1rem;
+    margin-bottom:.3rem;
+  }
+  .perk .ticket-code{
+    font-family:'Space Mono',monospace;
+    font-size:.68rem;
+    opacity:.6;
+    margin-bottom:1.6rem;
+    display:block;
+  }
+  .perk .msg{
+    font-size:clamp(1.05rem,2.6vw,1.35rem);
+    line-height:1.7;
+    max-width:620px;
+    margin:0 auto 1.6rem;
+  }
+  .perk .sign{
+    font-style:italic;
+    color:var(--mustard);
+  }
+
+  /* ---------- GALERIA FINAL ---------- */
+  .finale-grid{
+    columns:3 220px;
+    column-gap:1rem;
+  }
+  .finale-item{
+    break-inside:avoid;
+    margin-bottom:1rem;
+    border-radius:6px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(43,27,18,.15);
+  }
+  .finale-item:nth-child(3n+1) .placeholder,
+  .finale-item:nth-child(3n+1) img{aspect-ratio:3/4;}
+  .finale-item:nth-child(3n+2) .placeholder,
+  .finale-item:nth-child(3n+2) img{aspect-ratio:1/1;}
+  .finale-item:nth-child(3n) .placeholder,
+  .finale-item:nth-child(3n) img{aspect-ratio:4/3;}
+  .finale-item img,.finale-item .placeholder{width:100%;display:block;object-fit:cover;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center;
+    padding:4rem 1.5rem 3rem;
+    color:var(--plum);
+  }
+  footer .the-end{
+    font-family:'Fredoka',sans-serif;
+    font-size:1.4rem;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+  }
+  footer .tag{
+    font-size:.8rem;
+    color:#8a7250;
+    margin-top:.5rem;
+  }
+
+  /* ---------- BOTÃO DE INSTRUÇÕES (opcional, pode apagar) ---------- */
+  .howto-toggle{
+    position:fixed;
+    bottom:18px;
+    right:18px;
+    background:var(--burnt);
+    color:var(--paper);
+    border:none;
+    border-radius:30px;
+    padding:.7rem 1.1rem;
+    font-family:'Quicksand',sans-serif;
+    font-weight:600;
+    font-size:.82rem;
+    cursor:pointer;
+    box-shadow:0 6px 16px rgba(0,0,0,.25);
+    z-index:50;
+  }
+  .howto-panel{
+    position:fixed;
+    bottom:70px;
+    right:18px;
+    width:min(300px,80vw);
+    background:var(--paper);
+    border:2px solid var(--plum);
+    border-radius:10px;
+    padding:1.1rem 1.2rem;
+    font-size:.82rem;
+    color:var(--ink);
+    display:none;
+    z-index:50;
+    line-height:1.5;
+  }
+  .howto-panel.open{display:block;}
+  .howto-panel code{
+    background:#EEE0C8;
+    padding:1px 5px;
+    border-radius:3px;
+    font-size:.78rem;
+  }
+
+  @media (max-width:640px){
+    .cast-grid{grid-template-columns:repeat(2,1fr);}
+    .episode{grid-template-columns:1fr;}
+    .episode .code{padding-top:0;}
+    .finale-grid{columns:2 160px;}
+    section{padding:4rem 1.2rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="door-frame">
+    <div class="peep">
+      <span class="num">17</span>
+      <span class="apt">APTO.</span>
+    </div>
+  </div>
+  <p class="eyebrow">Temporada especial · Episódio de aniversário</p>
+  <h1 class="logo-title">Feliz<br>Aniversário<br><span class="name">Vitória Linhares</span></h1>
+  <div class="friend-rule"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <p class="subtitle">"The One Where We Celebrate You"</p>
+
+  <div class="hero-photo">
+    <img src="../Happy-Birthday/fotos juntos/hero.jpg" alt="Foto principal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="placeholder"><span class="cam">📸</span><span>fotos/hero.jpg</span></div>
+  </div>
+
+  <a class="scroll-cue" href="#abertura">continuar assistindo ▾</a>
+</header>
+
+<section id="abertura">
+  <div class="section-head reveal">
+    <span class="code">01x01</span>
+    <h2>A Abertura</h2>
+    <p>Se cada momento nosso fosse um episódio, esses seriam os favoritos do elenco.</p>
+  </div>
+
+  <div class="cast-grid">
+    <div class="cast-card reveal">
+      <div class="cast-frame">
+        <img src="fotos/1.jpg" alt="Momento 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder"><span class="cam">📸</span><span>fotos/1.jpg</span></div>
+      </div>
+      <p class="cast-caption">Nosso primeiro encontro</p>
+    </div>
+    <div class="cast-card reveal">
+      <div class="cast-frame">
+        <img src="fotos/2.jpg" alt="Momento 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder"><span class="cam">📸</span><span>fotos/2.jpg</span></div>
+      </div>
+      <p class="cast-caption">A viagem inesquecível</p>
+    </div>
+    <div class="cast-card reveal">
+      <div class="cast-frame">
+        <img src="fotos/3.jpg" alt="Momento 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder"><span class="cam">📸</span><span>fotos/3.jpg</span></div>
+      </div>
+      <p class="cast-caption">Aquela risada até doer</p>
+    </div>
+    <div class="cast-card reveal">
+      <div class="cast-frame">
+        <img src="fotos/4.jpg" alt="Momento 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder"><span class="cam">📸</span><span>fotos/4.jpg</span></div>
+      </div>
+      <p class="cast-caption">Dia comum, foto especial</p>
+    </div>
+    <div class="cast-card reveal">
+      <div class="cast-frame">
+        <img src="fotos/5.jpg" alt="Momento 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder"><span class="cam">📸</span><span>fotos/5.jpg</span></div>
+      </div>
+      <p class="cast-caption">A comemoração</p>
+    </div>
+    <div class="cast-card reveal">
+      <div class="cast-frame">
+        <img src="fotos/6.jpg" alt="Momento 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder"><span class="cam">📸</span><span>fotos/6.jpg</span></div>
+      </div>
+      <p class="cast-caption">Hoje, comemorando você</p>
+    </div>
+  </div>
+</section>
+
+<section id="guia">
+  <div class="section-head reveal">
+    <span class="code">01x02</span>
+    <h2>Guia de Episódios</h2>
+    <p>Alguns capítulos que resumem por que hoje é um dia tão bom de comemorar.</p>
+  </div>
+
+  <div class="episodes">
+    <div class="episode reveal">
+      <span class="code">EP.01</span>
+      <div>
+        <h3>The One Where We Met</h3>
+        <p>Escreva aqui como vocês se conheceram — aquele detalhe que só vocês duas entendem.</p>
+      </div>
+    </div>
+    <div class="episode reveal">
+      <span class="code">EP.02</span>
+      <div>
+        <h3>The One With Your Best Quality</h3>
+        <p>Conte o que mais admira nela — pode ser algo engraçado ou algo profundo, sem regras.</p>
+      </div>
+    </div>
+    <div class="episode reveal">
+      <span class="code">EP.03</span>
+      <div>
+        <h3>The One With The Inside Joke</h3>
+        <p>Aquela piada interna, aquele apelido bobo, aquela frase que só faz sentido pra vocês.</p>
+      </div>
+    </div>
+    <div class="episode reveal">
+      <span class="code">EP.04</span>
+      <div>
+        <h3>The One Happening Right Now</h3>
+        <p>O que você deseja pra ela nesse novo ano de vida — o final feliz desse episódio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="perk">
+  <div class="perk reveal">
+    <span class="ticket-code">Pedido nº 001 · Mesa do sofá laranja</span>
+    <p class="msg">
+      Escreva aqui a sua mensagem de aniversário — algo que só você poderia dizer pra ela.
+      Pode ser grande, pode ser curta, só precisa ser verdadeira.
+    </p>
+    <p class="sign">Com todo o meu amor.</p>
+  </div>
+</section>
+
+<section id="finale">
+  <div class="section-head reveal">
+    <span class="code">01x03</span>
+    <h2>Melhores Momentos</h2>
+    <p>Um apanhado geral, do jeito que a gente vê os "recaps" no fim de temporada.</p>
+  </div>
+
+  <div class="finale-grid">
+    <div class="finale-item reveal">
+      <img src="fotos/7.jpg" alt="Foto 7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="placeholder"><span class="cam">📸</span><span>fotos/7.jpg</span></div>
+    </div>
+    <div class="finale-item reveal">
+      <img src="fotos/8.jpg" alt="Foto 8" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="placeholder"><span class="cam">📸</span><span>fotos/8.jpg</span></div>
+    </div>
+    <div class="finale-item reveal">
+      <img src="fotos/9.jpg" alt="Foto 9" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="placeholder"><span class="cam">📸</span><span>fotos/9.jpg</span></div>
+    </div>
+    <div class="finale-item reveal">
+      <img src="fotos/10.jpg" alt="Foto 10" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="placeholder"><span class="cam">📸</span><span>fotos/10.jpg</span></div>
+    </div>
+    <div class="finale-item reveal">
+      <img src="fotos/11.jpg" alt="Foto 11" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="placeholder"><span class="cam">📸</span><span>fotos/11.jpg</span></div>
+    </div>
+    <div class="finale-item reveal">
+      <img src="fotos/12.jpg" alt="Foto 12" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="placeholder"><span class="cam">📸</span><span>fotos/12.jpg</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="the-end">Fim.</p>
+  <p class="tag">feito com 💜 pra você · volta pro próximo episódio amanhã</p>
+</footer>
+<!--]
+<button class="howto-toggle" onclick="document.getElementById('howtoPanel').classList.toggle('open')">📸 Como adicionar fotos</button>
+<div class="howto-panel" id="howtoPanel">
+  Crie uma pasta <code>fotos</code> ao lado deste arquivo e coloque as imagens com os nomes
+  <code>hero.jpg</code>, <code>1.jpg</code> a <code>12.jpg</code>. Cada quadro pontilhado mostra
+  o nome do arquivo que ele está esperando. Você pode apagar este botão editando o HTML.
+</div>-->
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>

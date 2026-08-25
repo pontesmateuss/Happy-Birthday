@@ -256,6 +256,7 @@
     text-align:center;
   }
   .cast-frame{
+    width:100%;
     aspect-ratio:1/1;
     border-radius:50%;
     padding:6px;
@@ -263,7 +264,13 @@
     overflow:hidden;
   }
   .cast-frame:hover{transform:scale(1.05) rotate(0deg) !important;}
-  .cast-frame img,.cast-frame .placeholder{border-radius:50%;}
+  .cast-frame img,.cast-frame .placeholder{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    border-radius:50%;
+  }
   .cast-card:nth-child(1) .cast-frame{background:var(--ross);   transform:rotate(-2deg);}
   .cast-card:nth-child(2) .cast-frame{background:var(--rachel); transform:rotate(2deg);}
   .cast-card:nth-child(3) .cast-frame{background:var(--monica); transform:rotate(-3deg);}
@@ -441,17 +448,16 @@
   <div class="door-frame">
     <div class="peep">
       <span class="num">17</span>
-      <span class="apt">APTO.</span>
+      <span class="apt">ANOS</span>
     </div>
   </div>
   <p class="eyebrow">Temporada especial · Episódio de aniversário</p>
-  <h1 class="logo-title">Feliz<br>Aniversário<br><span class="name">Vitória Linhares</span></h1>
+  <h1 class="logo-title">Feliz<br>Aniversário<br><span class="name">VIVI</span></h1>
   <div class="friend-rule"><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <p class="subtitle">"The One Where We Celebrate You"</p>
 
   <div class="hero-photo">
-    <img src="/fotos/hero.jpg" alt="Foto principal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-    <div class="placeholder"><span class="cam">📸</span><span>fotos/hero.jpg</span></div>
+    <img src="fotos/hero.jpg" alt="Foto principal">
   </div>
 
   <a class="scroll-cue" href="#abertura">continuar assistindo ▾</a>
@@ -467,44 +473,37 @@
   <div class="cast-grid">
     <div class="cast-card reveal">
       <div class="cast-frame">
-        <img src="fotos/1.jpg" alt="Momento 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'; 
-        ">
-        <div class="placeholder"><span class="cam">📸</span><span>fotos/1.jpg</span></div>
+        <img src="fotos/1.jpg" alt="Momento 1">
       </div>
       <p class="cast-caption">Nosso primeiro encontro</p>
     </div>
     <div class="cast-card reveal">
       <div class="cast-frame">
-        <img src="fotos/2.jpg" alt="Momento 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="placeholder"><span class="cam">📸</span><span>fotos/2.jpg</span></div>
+        <img src="fotos/2.jpg" alt="Momento 2">
       </div>
       <p class="cast-caption">A viagem inesquecível</p>
     </div>
     <div class="cast-card reveal">
       <div class="cast-frame">
-        <img src="fotos/3.jpg" alt="Momento 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="placeholder"><span class="cam">📸</span><span>fotos/3.jpg</span></div>
+        <img src="fotos/3.jpg" alt="Momento 3">
       </div>
-      <p class="cast-caption">Aquela risada até doer</p>
+      <p class="cast-caption">Você no espelho</p>
     </div>
     <div class="cast-card reveal">
       <div class="cast-frame">
-        <img src="fotos/4.jpg" alt="Momento 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="placeholder"><span class="cam">📸</span><span>fotos/4.jpg</span></div>
+        <img src="fotos/4.jpg" alt="Momento 4">
       </div>
       <p class="cast-caption">Dia comum, foto especial</p>
     </div>
     <div class="cast-card reveal">
       <div class="cast-frame">
-        <img src="fotos/5.jpg" alt="Momento 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="placeholder"><span class="cam">📸</span><span>fotos/5.jpg</span></div>
+        <img src="fotos/5.jpg" alt="Momento 5">
       </div>
       <p class="cast-caption">A comemoração</p>
     </div>
     <div class="cast-card reveal">
       <div class="cast-frame">
-        <img src="fotos/6.jpg" alt="Momento 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="placeholder"><span class="cam">📸</span><span>fotos/6.jpg</span></div>
+        <img src="fotos/6.jpg" alt="Momento 6">
       </div>
       <p class="cast-caption">Hoje, comemorando você</p>
     </div>
@@ -523,28 +522,28 @@
       <span class="code">EP.01</span>
       <div>
         <h3>The One Where We Met</h3>
-        <p>Escreva aqui como vocês se conheceram — aquele detalhe que só vocês duas entendem.</p>
+        <p>Aquela menininha de amarelo é tão bonitinha e dedicada.</p>
       </div>
     </div>
     <div class="episode reveal">
       <span class="code">EP.02</span>
       <div>
         <h3>The One With Your Best Quality</h3>
-        <p>Conte o que mais admira nela — pode ser algo engraçado ou algo profundo, sem regras.</p>
+        <p>Você tem muitas qualidades, mas eu gostaria de destacar sua gentileza e empatia.</p>
       </div>
     </div>
     <div class="episode reveal">
       <span class="code">EP.03</span>
       <div>
         <h3>The One With The Inside Joke</h3>
-        <p>Aquela piada interna, aquele apelido bobo, aquela frase que só faz sentido pra vocês.</p>
+        <p>VO-MI-CA.</p>
       </div>
     </div>
     <div class="episode reveal">
       <span class="code">EP.04</span>
       <div>
         <h3>The One Happening Right Now</h3>
-        <p>O que você deseja pra ela nesse novo ano de vida — o final feliz desse episódio.</p>
+        <p>Desejo que você cresça e evolua cada vez mais, seja feliz e supere seus limites!</p>
       </div>
     </div>
   </div>
@@ -554,8 +553,7 @@
   <div class="perk reveal">
     <span class="ticket-code">Pedido nº 001 · Mesa do sofá laranja</span>
     <p class="msg">
-      Escreva aqui a sua mensagem de aniversário — algo que só você poderia dizer pra ela.
-      Pode ser grande, pode ser curta, só precisa ser verdadeira.
+      Eu te amo muito, quero que seu dia seja maravilhoso e que você se sinta especial, porque você é. Que a gente continue colecionando momentos incríveis juntas, rindo, viajando, e vivendo cada capítulo da nossa história com muito amor e cumplicidade.
     </p>
     <p class="sign">Com todo o meu amor.</p>
   </div>
@@ -570,43 +568,37 @@
 
   <div class="finale-grid">
     <div class="finale-item reveal">
-      <img src="fotos/7.jpg" alt="Foto 7" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder"><span class="cam">📸</span><span>fotos/7.jpg</span></div>
+      <img src="fotos/7.jpg" alt="Foto 7">
     </div>
     <div class="finale-item reveal">
-      <img src="fotos/8.jpg" alt="Foto 8" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder"><span class="cam">📸</span><span>fotos/8.jpg</span></div>
+      <img src="fotos/8.jpg" alt="Foto 8">
     </div>
     <div class="finale-item reveal">
-      <img src="fotos/9.jpg" alt="Foto 9" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder"><span class="cam">📸</span><span>fotos/9.jpg</span></div>
+      <img src="fotos/9.jpg" alt="Foto 9">
     </div>
     <div class="finale-item reveal">
-      <img src="fotos/10.jpg" alt="Foto 10" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder"><span class="cam">📸</span><span>fotos/10.jpg</span></div>
+      <img src="fotos/10.jpg" alt="Foto 10">
     </div>
     <div class="finale-item reveal">
-      <img src="fotos/11.jpg" alt="Foto 11" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder"><span class="cam">📸</span><span>fotos/11.jpg</span></div>
+      <img src="fotos/11.jpg" alt="Foto 11">
     </div>
     <div class="finale-item reveal">
-      <img src="fotos/12.jpg" alt="Foto 12" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="placeholder"><span class="cam">📸</span><span>fotos/12.jpg</span></div>
+      <img src="fotos/12.jpg" alt="Foto 12">
     </div>
   </div>
 </section>
 
 <footer>
   <p class="the-end">Fim.</p>
-  <p class="tag">feito com 💜 pra você · volta pro próximo episódio amanhã</p>
+  <p class="tag">feito com 💜 pra você · volta pro próximo episódio ano que vem.</p>
 </footer>
-<!--]
-<button class="howto-toggle" onclick="document.getElementById('howtoPanel').classList.toggle('open')">📸 Como adicionar fotos</button>
+
+<!--<button class="howto-toggle" onclick="document.getElementById('howtoPanel').classList.toggle('open')">📸 Como adicionar fotos</button>
 <div class="howto-panel" id="howtoPanel">
   Crie uma pasta <code>fotos</code> ao lado deste arquivo e coloque as imagens com os nomes
   <code>hero.jpg</code>, <code>1.jpg</code> a <code>12.jpg</code>. Cada quadro pontilhado mostra
   o nome do arquivo que ele está esperando. Você pode apagar este botão editando o HTML.
-</div>-->
+</div> -->
 
 <script>
   const io = new IntersectionObserver((entries)=>{
